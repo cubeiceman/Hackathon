@@ -1,1 +1,1 @@
-print("Hello World")
+k = 00000
