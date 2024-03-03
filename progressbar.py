@@ -9,7 +9,7 @@ max_words = 100
 current_words = progress
 scale = current_words / max_words 
 
-greenbar = pygame.Surface((100, progress))
+greenbar = pygame.Surface((progress, 100))
 
 class Progress_Bar:
     
@@ -18,7 +18,19 @@ class Progress_Bar:
         greenbar.fill((0, 255, 0)) 
 
     #this reads the wordcount from notes and adds to the progress bar
-    def add(wordcount):
-        progress += wordcount  
+    def add(wordcount):    
+        progress += wordcount 
+
+
+
+
+
+
+
+
+
+    
+        
+
 
 
