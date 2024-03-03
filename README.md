@@ -1,1 +1,5 @@
-insert description of project
+The Big Penguin is a game that rewards you for taking notes and using them to arm your penguin. You can upload your notes to a program that grades them based on their quality, clarity, and completeness. The program will also give you feedback and tips on how to improve your note-taking skills. You will also see a progress meter that fills up as you upload more notes.
+
+When the progress meter is full, you will get a token, which you can use to get powerful weapons for your loyal penguin. Your penguin is your loyal companion in the game, who will help you fight against other penguins for dominance. You can choose from different types of weapons, such as lasers, rockets, and hammers. You can also customize your penguin with different outfits and accessories.
+
+The Big Penguin is a fun and educational game that helps you develop your note-taking abilities and strategy. It also lets you have a fierce and loyal pet penguin to battle with. The Big Penguin is the ultimate game for learners, fighters, and anyone who loves taking notes. 🐧
