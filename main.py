@@ -23,6 +23,7 @@ c = pygame.time.Clock()
 WHITE = (255, 255, 255)
 GREY = (75, 75, 75)
 
+
 BACKGROUND_IMAGE = pygame.image.load("bg placeholder.png")
 BACKGROUND_IMAGE = pygame.transform.scale(BACKGROUND_IMAGE, (WIDTH, HEIGHT))
 
