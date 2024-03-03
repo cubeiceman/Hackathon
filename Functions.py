@@ -3,8 +3,17 @@ def in_rect(points, rectangle):
     return (rectangle.rect.x < points[0] < rectangle.rect.x + rectangle.rect.width) and (
             rectangle.rect.y < points[1] < rectangle.rect.y + rectangle.rect.height)
 
-def check_user_input(scene):
-    scene.handle_keyboard()
+def return_words(file_name):
+    with open(file_name, "r") as file:
+        content = file.read()
+        len = 0
+        for character in content:
+            if character != " ":
+                len += 1
+        return len
+
+def check_user_input(scene, text_box, keys, shift_keys):
+    scene.handle_keyboard(text_box, keys, shift_keys)
 
 def run_ai():
     pass
