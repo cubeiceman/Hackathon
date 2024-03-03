@@ -1,3 +1,5 @@
+![image](https://github.com/cubeiceman/Hackathon/assets/88341723/9b3ab95f-bb06-4a1e-9ced-28e24616f331)
+
 The Big Penguin is a game that rewards you for taking notes and using them to arm your penguin. You can upload your notes to a program that grades them. You will also see a progress meter that fills up as you upload more notes.
 
 When the progress meter is full, you will get a token, which you can use to get powerful weapons for your loyal penguin. Your penguin is your loyal companion in the game, who will help you fight against other penguins for dominance. You can choose from different types of weapons, such as scythes and swords.
