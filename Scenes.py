@@ -12,7 +12,7 @@ class Scene:
         # add some key and value to a determined dictionary inside the scene(game or menu)
         pass
 
-    def handle_keyboard(self, text_box, keys, shift_keys):
+    def handle_keyboard(self, text_box, keys, shift_keys, bar):
         # handles the keyboard, in this case, the quit button and the mouse clicks
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -20,7 +20,12 @@ class Scene:
             if event.type == pygame.KEYDOWN:
                 keys_state = pygame.key.get_pressed()
                 if event.key == pygame.K_RETURN:
-                    chars = Functions.return_words(text_box.text)
+                    try:
+                        chars = Functions.return_words(text_box.text)
+                        #text_box.text = ""
+                        bar.add(chars)
+                    except FileNotFoundError:
+                        pass
                 if event.key == pygame.K_BACKSPACE:
                     text_box.text = text_box.text[:-1]
                 try:
@@ -42,9 +47,13 @@ class Game_Scene(Scene):
         self.active = True
         self.image_dict = {}
         self.text_box = None
+        self.bar = None
 
     def add(self, value):
         self.text_box.append(value)
+
+    def set_progress_bar(self, bar):
+        self.bar = bar
 
     def set_text_box(self, val):
         self.text_box = val
@@ -52,3 +61,4 @@ class Game_Scene(Scene):
     def draw(self):
         self.surface.blit(self.bg, (0, 0))
         self.text_box.draw(self.surface)
+        self.bar.draw(self.surface)

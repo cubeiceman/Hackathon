@@ -5,6 +5,7 @@ import Buttons
 import Functions
 import Scenes
 import Text_Boxes
+import progressbar
 
 pygame.init()
 
@@ -17,6 +18,7 @@ GREY = (75, 75, 75)
 
 TYPE_FONT = pygame.font.SysFont('Arial', 20)
 BACKGROUND_IMAGE = pygame.image.load("bg placeholder.png")
+PROGRESS_BAR_IMAGE = pygame.image.load('progressbar0.png')
 BACKGROUND_IMAGE = pygame.transform.scale(BACKGROUND_IMAGE, (WIDTH, HEIGHT))
 
 before_time = time.time()
@@ -28,7 +30,7 @@ keys = {pygame.K_a: "a", pygame.K_b: "b", pygame.K_c: "c", pygame.K_d: "d", pyga
         pygame.K_v: "v", pygame.K_w: "w", pygame.K_x: "x", pygame.K_y: "y", pygame.K_z: "z", pygame.K_SLASH: "/",
         pygame.K_BACKSLASH: "\\", pygame.K_SPACE: " ", pygame.K_SEMICOLON: "; ", pygame.K_KP_MINUS: "-", pygame.K_0: "0",
         pygame.K_1: "1", pygame.K_2: "2", pygame.K_3: "3", pygame.K_4: "4", pygame.K_5: "5", pygame.K_6: "6", pygame.K_7: "7",
-        pygame.K_8: "8", pygame.K_9: "9", pygame.K_LEFTBRACKET: "[", pygame.K_RIGHTBRACKET: "]"}
+        pygame.K_8: "8", pygame.K_9: "9", pygame.K_LEFTBRACKET: "[", pygame.K_RIGHTBRACKET: "]", pygame.K_PERIOD: "."}
 
 keys_shift = {pygame.K_a: "A", pygame.K_b: "B", pygame.K_c: "C", pygame.K_d: "D", pygame.K_e: "E", pygame.K_f: "F",
               pygame.K_g: "G", pygame.K_h: "H", pygame.K_i: "I", pygame.K_j: "J", pygame.K_k: "K", pygame.K_l: "L",
@@ -38,12 +40,14 @@ keys_shift = {pygame.K_a: "A", pygame.K_b: "B", pygame.K_c: "C", pygame.K_d: "D"
               pygame.K_0: ")", pygame.K_1: "!", pygame.K_2: "@", pygame.K_3: "#", pygame.K_4: "$", pygame.K_5: "%", pygame.K_6: "^",
               pygame.K_7: "&", pygame.K_8: "*", pygame.K_9: "("}
 
-import_text_box = Text_Boxes.Text_Box(100, 100, 200, 100, TYPE_FONT, (0, 0, 0), (255, 255, 255))
+import_text_box = Text_Boxes.Text_Box(100, 400, 200, 100, TYPE_FONT, (0, 0, 0), (255, 255, 255))
+progress_bar = progressbar.Progress_Bar(WIDTH * (8/20), HEIGHT * (2/20), WIDTH * (1/20), HEIGHT * (1/20))
 
-game_scene.set_text_box(import_text_box)
+game_scene.text_box = import_text_box
+game_scene.bar = progress_bar
 
-def game_loop(scene, win, keys, shift_keys):
-    Functions.check_user_input(scene, import_text_box, keys, shift_keys)
+def game_loop(scene, win, keys, shift_keys, bar):
+    Functions.check_user_input(scene, import_text_box, keys, shift_keys, bar)
     Functions.move_everything()
     Functions.resolve_collisions()
     Functions.draw_scene(scene, win)
@@ -54,6 +58,6 @@ while game_scene.active:
     delta_time = after_time - before_time
     before_time = after_time
 
-    game_loop(game_scene, window, keys, keys_shift)
+    game_loop(game_scene, window, keys, keys_shift, progress_bar)
 
     c.tick(60)

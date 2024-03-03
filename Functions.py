@@ -12,8 +12,8 @@ def return_words(file_name):
                 len += 1
         return len
 
-def check_user_input(scene, text_box, keys, shift_keys):
-    scene.handle_keyboard(text_box, keys, shift_keys)
+def check_user_input(scene, text_box, keys, shift_keys, bar):
+    scene.handle_keyboard(text_box, keys, shift_keys, bar)
 
 def run_ai():
     pass
